@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body, main {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url("imgs/hatter.jpg");
+}
+
+main {
+    width: 70%;
+    margin: 0 auto 0 auto;
+    background-color: #efefef;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-areas: "_header _header _header"
+                         "_nav _main _aside"
+                         "_footer _footer _footer";
+}
+
+header {
+    grid-area: _header;
+    width: 100%;
+    line-height: 130px;
+    background: url("imgs/fejlec.jpg");
+    font-size: 20px;
+    text-align: center;
+    color: #efefef;
+}
+
+article {
+    width: 100%;
+    grid-area: _main;
+    overflow: auto;
+}
+
+aside {
+    width: calc(100% - 20px);
+    box-sizing: content-box;
+    border: 1px solid grey;
+    grid-area: _aside;
+    font-size: 14px;
+    padding: 10px;
+}
+aside #vers {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    grid-area: _footer;
+    background-color: #0062d3;
+    line-height: 50px;
+    text-align: center;
+    color: #efefef;
+}
+
+
+/*--------------------NAV----------------*/
+nav {
+    grid-area: _nav;
+    width: 100%;
+}
+nav ul {
+    list-style-type: none;
+    padding: 5px
+}
+nav ul li {
+    width: 100%;
+}
+nav ul li a, nav ul li a:visited{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #1080ff, #0062d3);
+    border-radius: 10px;
+    margin: 2px;
+    border: 1px solid #1080ff;
+    color: #efefef;
+}
+nav ul li a:hover, nav ul li a:active{
+    background: linear-gradient(45deg, #0062d3, #1080ff);
+
+}
+
+#tablaDiv {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+/*--------------Table----------------*/
+article table {
+    border-collapse: collapse;
+    margin: 0 auto 0 auto;
+    width: 350px;
+}
+
+tr {
+    border-bottom: 2px #83bbfc solid;
+}
+tr:nth-child(odd){
+    background-color: #c2defd;
+}
+tr:nth-child(even){
+    background-color: #fefefe;
+}
+
+@media screen and (max-width: 1000px){
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "_header _header"
+                             "_nav _nav"
+                             "_main _aside"
+                             "_footer _footer";
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-areas: "_header"
+                             "_nav"
+                             "_main"
+                             "_aside"
+                             "_footer";
+    }
+}
